@@ -1,4 +1,6 @@
 class StudentsController < ApplicationController
-    def index    
+    before_action :authenticate_user! 
+    def index
+        @students = current_user.students 
     end
 end

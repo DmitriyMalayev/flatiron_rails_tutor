@@ -1,27 +1,29 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>FlatironRailsTutor</title>
+    <title>Flatiron Rails Tutor</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+  
   <body>
     <nav>
-      <%= link_to  "List of Students", students_path %>
+      <%= link_to "List of Students", students_path %>
       <% if user_signed_in?  %>
-        <%= link_to  "Sign Up", new    new_user_registration_path %>
-        <%= link_to  "Sign In", new_user_session_path %>
-      <% else %>
-        <%= form_tag(destroy_user_session_path, method: :delete, style: "display:inline-block;") do %>
+        <%= form_tag(destroy_user_session_path, method: :delete, style: "display: inline-block;") do %>
           <%= submit_tag "Sign Out" %>
         <% end %>
+      <% else %>
+        <%= link_to  "Sign Up", new_user_registration_path %>
+        <%= link_to  "Sign In", new_user_session_path %>
       <% end %>
-
     </nav>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
   </body>
 </html>
+
