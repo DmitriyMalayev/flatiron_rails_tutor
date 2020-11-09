@@ -1,4 +1,8 @@
 class Student < ApplicationRecord
   belongs_to :user
-  validates :name, :phone_number, :email,  presence: true
+  has_many :appointments
+  has_many :tutors, through: :appointments
+  
+  validates :name, presence: true, uniqueness: {scope: :user_id}
+  validates :phone_number, :email,  presence: true 
 end
