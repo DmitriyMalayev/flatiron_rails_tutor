@@ -1,0 +1,21 @@
+<%= show_errors_for(appointment) %>
+<%= form_for appointment do |f| %>
+  <p>
+    <%= f.label :student_id, "Student Name" %>
+    <%= f.collection_select(:student_id, current_user.students, :id, :name %>
+  </p>
+  <p>
+    <%= f.label :tutor_id, "Tutor Name" %>
+    <%= f.collection_select(:tutor_id, Tutor.all, :id, :name %>
+  </p>
+  <%= f.label :subject, "Subject" %>
+  <%= f.text_field :subject %>
+</p>
+<%= f.label :starting_date_and_time, "Start Time" %>
+<%= f.datetime_field :starting_date_and_time %>
+<p>
+  <%= f.label :ending_date_and_time, "End Time" %>
+  <%= f.datetime_field :ending_date_and_time %>
+</p>
+<%= f.submit %>
+<% end %>

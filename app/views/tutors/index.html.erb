@@ -1,0 +1,8 @@
+<h1>List of Tutors</h1>
+<button><%= link_to  "Add Tutor", new_tutor_path %></button> 
+<% @tutors.each do |tutor| %>
+  <%= link_to tutor.name, tutor_path(tutor)  %>
+  <%= tutor.phone_number %>
+  <%= tutor.email %>
+  <%= tutor.years_of_experience %>
+<% end %>

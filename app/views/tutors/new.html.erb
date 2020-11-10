@@ -1,0 +1,18 @@
+<h1>New Tutor </h1>
+<%= show_errors_for(@tutor) %>
+<%= form_for(@tutor) do |f| %>
+    <%= f.label :name, "Name" %>
+    <%= f.text_field :name %>
+
+    <%= f.label :phone_number, "Phone Number" %>
+    <%= f.text_field :phone_number %>
+
+    <%= f.label :email, "Email Address" %>
+    <%= f.email_field :email %>
+
+    <%= f.label :years_of_experience, "Years Of Experience" %>
+    <%= f.text_field :years_of_experience %>
+<% end %>
+
+
+

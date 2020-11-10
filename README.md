@@ -38,3 +38,12 @@ class CreateAppointments < ActiveRecord::Migration[6.0]
 end 
 
 rails g resource Appointment tutor:references student:references subject:string starting_date_and_time:datetime ending_date_and_time:datetime 
+
+`Client Side vs. Server Side Saving`
+Client Side => In a cookie 
+Server Side => Persisted to DB 
+
+
+OAuth Flow 
+Knowing 4 Requests 
+

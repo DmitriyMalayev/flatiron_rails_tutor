@@ -1,0 +1,14 @@
+<%= show_errors_for(student) %>
+<%= form_for student do |f| %>
+  <p>
+    <%= f.label :name, "Name" %>
+    <%= f.text_field :name %>
+  </p>
+  <%= f.label :phone_number, "Phone Number" %>
+  <%= f.text_field :phone_number %>
+  <p>
+    <%= f.label :email, "Email Address" %>
+    <%= f.email_field :email %>
+  </p>
+  <%= f.submit %>
+<% end %>

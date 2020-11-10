@@ -1,0 +1,5 @@
+<h1><%= @student.name  %></h1>
+<p><%= link_to  "Edit Student", edit_student_path(@student) %></p>
+<%= form_tag(student_path(@student), method: :delete do) %>
+<%= submit_tag "Delete Student" %>
+<% end %>
