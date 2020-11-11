@@ -46,11 +46,28 @@ class Appointment < ApplicationRecord
     self.tutor.name  
   end 
 
-  def patient_name 
-    self.patient.name  
+  def student_name 
+    self.student.name  
   end
 
   def self.by_tutor(tutor)
     where(tutor_id: tutor.id)  
+  end
+  
+  def self.upcoming
+    where("starting_date_and_time > ?", Time.now)
   end 
+
+  def self.past 
+    where("ending_date_and_time < ?", Time.now) 
+  end 
+
+  def self.most_recent 
+    order(starting_date_and_time: :desc) 
+  end 
+
+  def self.longest_ago
+    order(starting_date_and_time: :asc)  
+  end 
+
 end

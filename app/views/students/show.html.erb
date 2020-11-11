@@ -1,8 +1,9 @@
 <h1><%= @student.name  %></h1>
-
-<p><%= link_to "Make Appointment For: #{@student.name}" new_student_appointment_path(@student)%></p>
-<p><%= link_to "#{@student.name}'s appointments " student_appointments_path(@student) %></p>
-<p><%= link_to  "Edit Student", edit_student_path(@student) %></p>
+<p><%= link_to "Make An Appointment For: #{@student.name}" new_student_appointment_path(@student)%></p>
+<p><%= link_to "#{@student.name}'s appointments" student_appointments_path(@student) %></p>
+<p><%= link_to "Edit Student", edit_student_path(@student) %></p>
     <%= form_tag(student_path(@student), method: :delete do) %>
     <%= submit_tag "Delete Student" %>
 <% end %>
+
+

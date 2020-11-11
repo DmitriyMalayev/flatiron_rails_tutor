@@ -1,5 +1,21 @@
 <h1>List of Appointments</h1>
 <button><%= link_to  "Add Appointment", new_appointment_path %></button>
+<%= form_tag(appointments_path, method: "get") do %>
+  <label for="filter_by_time">Filter By Time</label>
+  <select name="filter_by_time">
+    <option <%= "selected" if params[:filter_by_time] == "" %> value="">All</option>
+    <option <%= "selected" if params[:filter_by_time] == "past" %> value="past">Past</option>
+    <option <%= "selected" if params[:filter_by_time] == "upcoming" %> value="upcoming">Upcoming</option>
+  </select>
+  <label for="sort">Sort</label>
+  <select name="sort">
+    <option <%= "selected" if params[:filter_by_name] == "" %> value="">None</option>
+    <option <%= "selected" if params[:filter_by_name] == "most_recent" %> value="most_recent">Most Recent</option>
+    <option <%= "selected" if params[:filter_by_name] == "longest_ago" %> value="longest_ago">Longest Ago</option>
+  </select>
+  <%= submit_tag "Filter Results"%>
+<% end %>
+
 <% @appointments.each do |appointment| %>
   <p>
     Hello <%= link_to appointment.student.name, student_path(appointment.student) %>. 
@@ -10,4 +26,3 @@
   </p>
 <% end %>
 
-<%#UPDATE SUBJECT%> 
