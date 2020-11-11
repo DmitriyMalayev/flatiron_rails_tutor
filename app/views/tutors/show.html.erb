@@ -2,3 +2,7 @@
 Phone Number: <%= @tutor.phone_number %>
 Email Address: <%= @tutor.email %>
 Years Of Experience: <%= @tutor.years_of_experience %>
+
+<%= link_to "Make An Appointment With #{@tutor.name}.", new_tutor_appointment_path(@tutor) %>
+<br> 
+<%= link_to "List Of #{@tutor.name}'s Appointments", tutor_appointments_path(@tutor) %> 

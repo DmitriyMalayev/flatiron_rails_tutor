@@ -3,7 +3,15 @@ class AppointmentsController < ApplicationController
     before_action :set_appointment, only: [:show, :edit, :update, :destroy] 
 
     def index
-        @appointments = current_user.appointments 
+        @student = current_user.students.find_by_id(params[:student_id])
+        @tutor = Doctor.find_by_id(params[:doctor_id])
+        if @student
+            @appointments = @student.appointments
+        elsif @tutor
+            @appointments = current_user.appointments.by_tutor(@tutor)
+        else 
+            @appointments = current_user.appointments  
+        end  
     end
 
     def show
@@ -11,7 +19,15 @@ class AppointmentsController < ApplicationController
     end
 
     def new
-        @appointment = Appointment.new         
+        @student = current_user.students.find_by_id(params[:student_id])
+        @tutor = Tutor.find_by_id(params[:tutor_id]) 
+        if @student 
+            @appointment = @student.appointments.build 
+        elsif @tutor 
+            @appointment = @tutor.appointments.build 
+        else 
+            @appointment = Appointment.new
+        end          
     end
 
     def create
@@ -21,7 +37,6 @@ class AppointmentsController < ApplicationController
         else 
             render :new 
         end  
-    
     end
 
     def edit
@@ -50,6 +65,7 @@ class AppointmentsController < ApplicationController
     def appointment_params
         params.require(:appointment).permit(:tutor_id, :student_id, :subject, :starting_date_and_time, :ending_date_and_time) 
     end 
+
 end
 
   

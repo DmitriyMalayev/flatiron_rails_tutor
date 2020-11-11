@@ -1,4 +1,4 @@
- class Appointment < ApplicationRecord
+class Appointment < ApplicationRecord
   belongs_to :tutor
   belongs_to :student
 
@@ -19,15 +19,13 @@
     end 
   end
    
-
   def student_conflict 
     starting = self.starting_date_and_time
     ending = self.ending_date_and_time
     conflict = student.appointments.any? do |appointment|
       other_start = appointment.starting_date_and_time
       other_end = appointment.ending_date_and_time 
-
-      other_start < ending && ending < other_end || other_start < starting && starting < other_end 
+      other_start < ending && ending < other_end || other_start < starting && starting < other_end
     end
     if conflict 
       errors.add[:student, "Conflicting Appointment Present"]
@@ -44,16 +42,15 @@
     starting < ending
   end 
   
-  
-
-
-
-  
   def tutor_name 
     self.tutor.name  
   end 
 
   def patient_name 
     self.patient.name  
+  end
+
+  def self.by_tutor(tutor)
+    where(tutor_id: tutor.id)  
   end 
-end 
+end

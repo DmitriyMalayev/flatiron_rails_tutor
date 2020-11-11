@@ -47,3 +47,12 @@ Server Side => Persisted to DB
 OAuth Flow 
 Knowing 4 Requests 
 
+`If we want to make tutor not selectable. Note, this will break some functionality of form partial.` 
+  <% if appointment.tutor_id %>
+    <%= f.label :tutor_id, "Tutor" %>
+    <%= f.hidden_field :tutor_id %>
+    <%= appointment.tutor.name %>
+  <% else %>
+    <%= f.label :tutor_id, "Tutor Name" %>
+    <%= f.collection_select(:tutor_id, Tutor.all, :id, :name %>
+  <% end %>
