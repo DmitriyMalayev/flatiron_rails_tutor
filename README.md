@@ -65,4 +65,4 @@ Implement avatar_url and full_name to sign up form
 
 
 `bundle add dotenv-rails` This adds the dovenv rails gem 
-
+Make sure to move this file from the bottom the the development test group in the GemFile 
