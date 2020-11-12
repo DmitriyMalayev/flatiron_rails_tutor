@@ -6,7 +6,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable, 
   :omniauthable, omniauth_providers: [:google_oauth2] 
 
-  def self.fromGoogle(uid:, email:, full_name:, avatar_url:)
+  def self.from_google(uid:, email:, full_name:, avatar_url:)
    user = User.find_or_create_by(email: email) do |u|
       u.uid = uid 
       u.full_name = full_name 
