@@ -1,22 +1,34 @@
 class AppointmentsController < ApplicationController
-    before_action :authenticate_user! 
-    before_action :set_appointment, only: [:show, :edit, :update, :destroy] 
+    before_action :authenticate_user! #A user must be authenticated to view appointments 
+    before_action :set_appointment, only: [:show, :edit, :update, :destroy]  #set @appointment for the following list for current_user  
 
     def index
-        @student = current_user.students.find_by_id(params[:student_id])
-        @tutor = Tutor.find_by_id(params[:tutor_id])
+        @student = current_user.students.find_by_id(params[:student_id])  #All of the students that belong to the current user
+        @tutor = Tutor.find_by_id(params[:tutor_id])  #A tutor is not directly related to a user  
         if @student
-            @appointments = @student.appointments
+            @appointments = @student.appointments  #We can use @student because it belongs to the user 
         elsif @tutor
-            @appointments = current_user.appointments.by_tutor(@tutor)
+            @appointments = current_user.appointments.by_tutor(@tutor)  #All of the appointments with a specific tutor 
         else 
-            @appointments = current_user.appointments  
+            @appointments = current_user.appointments   #If it's neither show all of the appointments 
         end  
-        filter_options 
+        filter_options   #upcoming, past, recent, longest ago filtering options 
     end
 
-    def show
+    # .find => raises an ActiveRecord::RecordNotFound exception when the record doesn't exist 
+    # .find_by(id: id) => Will return nil 
 
+    
+
+
+
+
+
+
+
+
+    def show
+        #handled by :set_appointment 
     end
 
     def new
@@ -41,7 +53,7 @@ class AppointmentsController < ApplicationController
     end
 
     def edit
-        
+        #handled by :set_appointment
     end
 
     def update
@@ -59,7 +71,7 @@ class AppointmentsController < ApplicationController
 
     private 
 
-    def set_appointment
+    def set_appointment 
         @appointment = current_user.appointments.find(params[:id]) 
     end 
 
