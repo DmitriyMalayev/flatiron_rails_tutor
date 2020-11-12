@@ -7,6 +7,6 @@ Rails.application.routes.draw do
     resources :tutors, only: [:index]
     resources :appointments, only: [:index, :new]   
   end
-  devise_for :users
-  root "students#index" 
-end
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' } 
+  root "students#index"  
+end 

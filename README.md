@@ -56,3 +56,13 @@ Knowing 4 Requests
     <%= f.label :tutor_id, "Tutor Name" %>
     <%= f.collection_select(:tutor_id, Tutor.all, :id, :name %>
   <% end %>
+
+
+rails g migration addOauthColumnsToUsers full_name:string avatar_url:string uid:string   `does it need to be full name??` 
+
+
+Implement avatar_url and full_name to sign up form 
+
+
+`bundle add dotenv-rails` This adds the dovenv rails gem 
+
