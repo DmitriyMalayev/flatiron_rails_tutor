@@ -1,5 +1,5 @@
-# app/models/tutor.rb
-class Tutor < ApplicationRecord
+
+class Tutor < ApplicationRecord # app/models/tutor.rb 
     has_many :appointments 
     has_many :students, through: :appointments 
      

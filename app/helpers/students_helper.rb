@@ -1,3 +1,2 @@
-# app/helpers/students_helper.rb
-module StudentsHelper
+module StudentsHelper # app/helpers/students_helper.rb 
 end

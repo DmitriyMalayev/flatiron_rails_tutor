@@ -1,5 +1,4 @@
-# app/helpers/error_helper.rb
-module ErrorHelper
+module ErrorHelper # app/helpers/error_helper.rb
     def show_errors_for(object)
         render partial: "/shared/errors", locals: {object: object} 
     end  

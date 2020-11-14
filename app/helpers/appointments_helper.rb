@@ -1,3 +1,2 @@
-# app/helpers/appointments_helper.rb 
-module AppointmentsHelper
+module AppointmentsHelper  # app/helpers/appointments_helper.rb 
 end

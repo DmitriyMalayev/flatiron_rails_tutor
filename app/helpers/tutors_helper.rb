@@ -1,3 +1,2 @@
-# app/helpers/tutors_helper.rb
-module TutorsHelper
+module TutorsHelper # app/helpers/tutors_helper.rb 
 end

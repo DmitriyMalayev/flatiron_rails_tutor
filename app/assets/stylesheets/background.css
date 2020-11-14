@@ -1,6 +1,4 @@
-/* app/assets/stylesheets/background.css */
-
-body {
+body {                  /* app/assets/stylesheets/background.css */ 
   background-image: url("manhattan.png");
   background-size: cover;
 }

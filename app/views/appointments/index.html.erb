@@ -1,5 +1,5 @@
-<%# app/views/appointments/index.html.erb  %>
 <h1>List of Appointments</h1>
+<%# app/views/appointments/index.html.erb  %>
 <button><%= link_to  "Add Appointment", new_appointment_path %></button>
 <%= form_tag(appointments_path, method: "get") do %>
   <label for="filter_by_time">Filter By Time</label>
@@ -16,16 +16,17 @@
   </select>
   <%= submit_tag "Filter Results"%>
 <% end %>
-
 <% @appointments.each do |appointment| %>
   <p>
     Hello <%= link_to appointment.student_name, student_path(appointment.student) %>. <br>
-    You have an appointment at <%= appointment.starting_date_and_time.strftime("%b %e, %l:%M %p")%>: <br> 
+    You have an appointment at <%= appointment.starting_date_and_time.strftime("%b %e, %l:%M %p")%>: <br>
     with <%= link_to appointment.tutor_name, tutor_path(appointment.tutor) %>.
-    The subject will be <strong> <%= appointment.subject  %>  <br> </strong> 
+    The subject will be <strong> <%= appointment.subject  %>  <br>
+    </strong>
     Your appointment will end at <%= appointment.ending_date_and_time.strftime("%b %e, %l:%M %p") %>. 
   </p>
 <% end %>
 <br>
-<iframe src="https://giphy.com/embed/gfTPmNCC7PKHevwp25" width="350" height="258" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/memecandy-gfTPmNCC7PKHevwp25"></a></p> 
-<%# Does select mean if there is anything selected in the filter?  %>  
+<iframe src="https://giphy.com/embed/gfTPmNCC7PKHevwp25" width="350" height="258" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+<p><a href="https://giphy.com/gifs/memecandy-gfTPmNCC7PKHevwp25"></a></p>
+<%# Does select mean if there is anything selected in the filter?  %>

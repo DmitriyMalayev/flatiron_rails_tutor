@@ -1,13 +1,14 @@
-<%# app/views/appointments/show.html.erb  %>
-<strong><h1>Appointment Details</h1></strong> 
+<strong>
+  <h1>Appointment Details</h1>
+</strong>  <%# app/views/appointments/show.html.erb  %>
 <br>
 <strong>Student: </strong><%= link_to @appointment.student_name, student_path(@appointment.student)  %>  <br>
 <strong>Tutor: </strong> <%= link_to @appointment.tutor_name, tutor_path(@appointment.tutor)   %> <br>
 <strong>Subject: </strong><%= @appointment.subject  %> <br>
-<strong>Starting Time: </strong><%= @appointment.starting_date_and_time.strftime("%b %e, %l:%M %p") %> <br> 
-<strong>Ending Time: </strong><%= @appointment.ending_date_and_time.strftime("%b %e, %l:%M %p") %>  <br> <br>
- <button><%= link_to  "Edit Appointment" , edit_appointment_path(@appointment) %></button> <br> 
-<%= form_tag(appointment_path(@appointment), method: :delete, style: "display: inline-block;")  do %> 
- <strong> <%= submit_tag "Delete Appointment ", style: "color: red;" %> </strong> <br> 
-  
+<strong>Starting Time: </strong><%= @appointment.starting_date_and_time.strftime("%b %e, %l:%M %p") %> <br>
+<strong>Ending Time: </strong><%= @appointment.ending_date_and_time.strftime("%b %e, %l:%M %p") %>  <br>
+<br>
+<button><%= link_to  "Edit Appointment" , edit_appointment_path(@appointment) %></button> <br>
+<%= form_tag(appointment_path(@appointment), method: :delete, style: "display: inline-block;")  do %>
+  <strong> <%= submit_tag "Delete Appointment ", style: "color: red;" %> </strong> <br>
 <% end %>

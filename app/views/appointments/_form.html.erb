@@ -1,46 +1,42 @@
-<%# app/views/appointments/_form.html.erb  %>
-<%= show_errors_for(appointment) %>  <%# This is a partial  %> 
-<%= form_for appointment do |f| %>   
+<%= show_errors_for(appointment) %>  <%# This is a partial  %>  <%# app/views/appointments/_form.html.erb  %>
+<%= form_for appointment do |f| %>
   <p>
-    <% if appointment.student_id  %> 
-      <%= f.label :student_id, "Student" %>
+    <% if appointment.student_id  %>
+      <strong>  <%= f.label :student_id, "Student" %> </strong>
       <%= f.hidden_field :student_id %>
       <%= appointment.student.name  %>
     <% else %>
-      <%= f.label :student_id, "Student" %>
+      <strong>  <%= f.label :student_id, "Student" %> </strong>
       <%= f.collection_select(:student_id, current_user.students, :id, :name) %>
     <% end %>
-  
   </p>
-
-    <%# If the student_id is already assigned or exists show it, with this style when you want to edit the form you will not have the option to change the student or the tutor. This is an optional approach.   %> 
+  <%# If the student_id is already assigned or exists show it, with this style when you want to edit the form you will not have the option to change the student or the tutor. This is an optional approach.   %>
   <p>
     <% if appointment.tutor_id %>
-      <%= f.label :tutor_id, "Tutor" %>
+      <strong>  <%= f.label :tutor_id, "Tutor" %></strong>
       <%= f.hidden_field :tutor_id %>
       <%= appointment.tutor.name %>
       <%# If the tutor_id is already assigned or exists show it, with this style when you want to edit the form you will not have the option to change the student or the tutor. This is an optional approach. Affects partial. %>
     <% else %>
-      <%= f.label :tutor_id, "Tutor" %>
+      <strong>   <%= f.label :tutor_id, "Tutor" %></strong>
       <%= f.collection_select :tutor_id, Tutor.all, :id, :name %>
       <%# Tutor.all because there isn't an association between Users and Tutors ??  %>
     <% end %>
   </p>
   <p>
-    <%= f.label :subject %>  <%# no selection?? is it because we don't have a separate model? %>
+    <strong>  <%= f.label :subject %>  </strong> <%# no selection?? is it because we don't have a separate model? %>
     <%= f.text_field :subject %>
   </p>
   <p>
-    <%= f.label :starting_date_and_time, "Starting Date and Time" %>  <%# Start time with GUI Calendar %>
+    <strong> <%= f.label :starting_date_and_time, "Starting Date and Time" %></strong>   <%# Start time with GUI Calendar %>
     <%= f.datetime_field :starting_date_and_time %>
   </p>
   <p>
-    <%= f.label :ending_date_and_time, "Ending Date and Time" %> <%# End time with GUI Calendar %>
+    <strong> <%= f.label :ending_date_and_time, "Ending Date and Time" %> </strong> <%# End time with GUI Calendar %>
     <%= f.datetime_field :ending_date_and_time %>
   </p>
   <%= f.submit %>
 <% end %>
-
 <%#  
 <!-- 
 f.collection_select :student_id, current_user.students, :id, :name 

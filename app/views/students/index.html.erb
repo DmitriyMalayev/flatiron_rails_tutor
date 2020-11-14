@@ -1,12 +1,13 @@
-<%# app/views/students/index.html.erb  %> 
 <h1>List of Students</h1>
-<button><%= link_to  "Add Student", new_student_path %></button> 
+ <%# app/views/students/index.html.erb  %>
+<button><%= link_to  "Add Student", new_student_path %></button>
 <br>
 <% @students.each do |student| %>
-  <br><%= link_to student.name, student_path(student)  %> <br>
-  <%=student.phone_number %> <br> 
-  <%=mail_to student.email %> <br> 
+  <br>
+  <%= link_to student.name, student_path(student)  %> <br>
+  <%=student.phone_number %> <br>
+  <%=mail_to student.email %> <br>
 <% end %>
 <br>
-
-<div style="width:100%;height:0;padding-bottom:56%;position:relative;"><iframe src="https://giphy.com/embed/Vh9i7w1EROjIL3m8k0" width="25%" height="25%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/sprout-social-2019-index-Vh9i7w1EROjIL3m8k0"></a></p>
+<div style="width:100%;height:0;padding-bottom:56%;position:relative;"><iframe src="https://giphy.com/embed/Vh9i7w1EROjIL3m8k0" width="25%" height="25%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div>
+<p><a href="https://giphy.com/gifs/sprout-social-2019-index-Vh9i7w1EROjIL3m8k0"></a></p>

@@ -1,16 +1,14 @@
-<%# app/views/students/_form.html.erb  %>
-
-<%= show_errors_for(student) %>  <%# student not @student because this is a partial %>
+<%= show_errors_for(student) %> <%# app/views/students/_form.html.erb  %>  <%# student not @student because this is a partial %>
 <%= form_for student do |f| %>
   <p>
-    <%= f.label :name, "Name" %>
+    <strong>  <%= f.label :name, "Name" %></strong>
     <%= f.text_field :name %>
   </p>
-  <%= f.label :phone_number, "Phone Number" %>
+  <strong>  <%= f.label :phone_number, "Phone Number" %></strong>
   <%= f.text_field :phone_number %>
   <p>
-    <%= f.label :email, "Email Address" %>
+    <strong><%= f.label :email, "Email Address" %></strong>
     <%= f.email_field :email %>
   </p>
   <%= f.submit %>
-<% end %> 
+<% end %>

@@ -1,5 +1,4 @@
-<%# app/views/layouts/application.html.erb  %>
-<!DOCTYPE html>
+<!DOCTYPE html> <%# app/views/layouts/application.html.erb  %>
 <html>
   <head>
     <title>Flatiron Rails Tutor</title>
@@ -9,7 +8,6 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-    
     <%= render partial: "shared/navbar" %>
     <% flash.each do |name, message|   %>
       <%= content_tag :div, message, class: name %>
@@ -17,4 +15,3 @@
     <%= yield %>
   </body>
 </html>
-

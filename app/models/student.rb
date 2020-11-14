@@ -1,5 +1,5 @@
-app/models/student.rb
-class Student < ApplicationRecord
+
+class Student < ApplicationRecord #app/models/student.rb 
   belongs_to :user
   has_many :appointments
   has_many :tutors, through: :appointments
