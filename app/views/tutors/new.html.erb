@@ -1,18 +1,18 @@
+<%# app/views/tutors/new.html.erb  %>
 <h1>New Tutor </h1>
-<%= show_errors_for(@tutor) %>
-<%= form_for(@tutor) do |f| %>
-    <%= f.label :name, "Name" %>
-    <%= f.text_field :name %>
+<%= show_errors_for(@tutor) %>  <%# Uses app/helpers/error.helper.rb  %>
+<%= form_for(@tutor) do |f| %> 
+    <strong><%= f.label :name, "Name" %></strong>
+    <%= f.text_field :name %> <br> 
 
-    <%= f.label :phone_number, "Phone Number" %>
-    <%= f.text_field :phone_number %>
+    <strong> <%= f.label :phone_number, "Phone Number" %> </strong>
+    <%= f.text_field :phone_number %> <br> 
 
-    <%= f.label :email, "Email Address" %>
-    <%= f.email_field :email %>
+    <strong> <%= f.label :email, "Email Address" %> </strong>
+    <%= f.email_field :email %> <br> 
 
-    <%= f.label :years_of_experience, "Years Of Experience" %>
-    <%= f.text_field :years_of_experience %>
+    <strong> <%= f.label :years_of_experience, "Years Of Experience" %> </strong> 
+    <%= f.text_field :years_of_experience %> <br> <br>  
+    <strong> <%= f.submit %>
 <% end %>
-
-
 

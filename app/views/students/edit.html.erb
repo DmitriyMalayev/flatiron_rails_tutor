@@ -1,3 +1,9 @@
+<%# app/views/students/edit.html.erb  %>
 <h1>Edit Student</h1>
 <%= render partial: "form", locals: {student: @student} %>
 
+<%= form_tag(student_path(@student), method: :delete) do %>  
+  <%= submit_tag "Delete Student" %>
+<% end %>   
+
+<%# delete is the http verb  %>

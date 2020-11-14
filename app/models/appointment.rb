@@ -1,3 +1,4 @@
+# app/models/appointment.rb
 class Appointment < ApplicationRecord
   belongs_to :tutor
   belongs_to :student
@@ -5,11 +6,13 @@ class Appointment < ApplicationRecord
   validates :starting_date_and_time, :ending_date_and_time, :subject, presence: true
   validate :tutor_conflict, :student_conflict, if: :starts_before_it_ends?  
   validate :ends_after_it_starts 
+  # validations => used normal validations 
+  # validate => used for custom validations  
 
   def tutor_conflict 
     starting = self.starting_date_and_time
     ending = self.ending_date_and_time
-    conflict = tutor.appointments.any? do |appointment|
+    conflict = tutor.appointments.any? do |appointment|  #.any = Returns true if at least one element is true (or non empty array)
       other_start = appointment.starting_date_and_time
       other_end = appointment.ending_date_and_time 
       other_start < ending && ending < other_end || other_start < starting && starting < other_end 
@@ -39,7 +42,7 @@ class Appointment < ApplicationRecord
   end
 
   def starts_before_it_ends? 
-    starting < ending
+    starting_date_and_time < ending_date_and_time
   end 
   
   def tutor_name 

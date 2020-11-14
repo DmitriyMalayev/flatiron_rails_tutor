@@ -1,5 +1,5 @@
+# config/locales/devise.en.yml 
 # Additional translations at https://github.com/heartcombo/devise/wiki/I18n
-
 en:
   devise:
     confirmations:

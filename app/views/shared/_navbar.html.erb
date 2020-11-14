@@ -1,0 +1,16 @@
+<%# app/views/shared/_navbar.html.erb  %>
+
+<nav>
+  <button> <%= link_to "List of Students", students_url, style: "color: blue;" %></button> <%# index page for students  %>
+  <button><%= link_to "List of Tutors", tutors_url, style: "color: blue;" %></button> <%# index page for tutors  %>
+  <button><%= link_to "List of Appointments", appointments_url, style: "color: blue;" %></button>  <%# index page for appointments  %>
+  
+  <% if user_signed_in?  %>   <%# Display Sign Out if the User is signed in %>
+    <%= form_tag(destroy_user_session_path, method: :delete, style: "display: inline-block;") do %></button>
+      <%= submit_tag "Sign Out", style: "color: blue;" %>
+    <% end %>
+  <% else %>
+    <button><%= link_to  "Sign Up", new_user_registration_path, style: "color: blue;" %> </button> <%# Register New User  %>
+    <button><%= link_to  "Sign In", new_user_session_path, style: "color: blue;" %> </button><%# Sign In New User  %>
+  <% end %>
+</nav>  

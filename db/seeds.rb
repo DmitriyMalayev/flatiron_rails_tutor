@@ -1,3 +1,4 @@
+# db/seeds.rb
 user = User.first_or_create(name: "name", email: "tutor@tutor.com", password:"password", phone_number: "(123)456-7890")
 
 student1 = user.students.find_or_create_by(name: "Hello", phone_number: "(111)111-1111", email: "email@gmail.com")  

@@ -1,15 +1,19 @@
-<%= show_errors_for(appointment) %>
-<%= form_for appointment do |f| %>
+<%# app/views/appointments/_form.html.erb  %>
+<%= show_errors_for(appointment) %>  <%# This is a partial  %> 
+<%= form_for appointment do |f| %>   
   <p>
-    <% if appointment.student_id  %>
+    <% if appointment.student_id  %> 
       <%= f.label :student_id, "Student" %>
       <%= f.hidden_field :student_id %>
       <%= appointment.student.name  %>
     <% else %>
       <%= f.label :student_id, "Student" %>
-      <%= f.collection_select(:student_id, current_user.students, :id, :name %>
+      <%= f.collection_select(:student_id, current_user.students, :id, :name) %>
     <% end %>
+  
   </p>
+
+    <%# If the student_id is already assigned or exists show it, with this style when you want to edit the form you will not have the option to change the student or the tutor. This is an optional approach.   %> 
   <p>
     <% if appointment.tutor_id %>
       <%= f.label :tutor_id, "Tutor" %>
@@ -19,7 +23,7 @@
     <% else %>
       <%= f.label :tutor_id, "Tutor" %>
       <%= f.collection_select :tutor_id, Tutor.all, :id, :name %>
-      <%# Tutor.all because there isn't an association between Users and tutors  %>
+      <%# Tutor.all because there isn't an association between Users and Tutors ??  %>
     <% end %>
   </p>
   <p>
@@ -36,8 +40,11 @@
   </p>
   <%= f.submit %>
 <% end %>
-<%# f.collection_select :student_id, current_user.students, :id, :name %>
-<%#What is the method we want to call on the appointment object? 
+
+<%#  
+<!-- 
+f.collection_select :student_id, current_user.students, :id, :name 
+What is the method we want to call on the appointment object? 
    student_id => This will assign the foreign key pointing to the student that this appointment belongs to. 
   What's the collection we want to generate the options for the form? 
   It's not Tutor.all because we're not able to create an appointment for any student or only students that we have added ourselves. 
@@ -49,4 +56,6 @@
   The option value is going to be the return value from :id when it's called on that student.  
   The option value is what is going to end up in the input and in the params.  
   The last argument is what the User will see. 
-  It is the text inside of the option. The name of the student which is the only choice that makes sense to show to the user. %>
+  It is the text inside of the option. The name of the student which is the only choice that makes sense to show to the user.
+--> 
+%>

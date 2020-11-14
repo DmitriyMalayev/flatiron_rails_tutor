@@ -1,3 +1,4 @@
+app/models/student.rb
 class Student < ApplicationRecord
   belongs_to :user
   has_many :appointments
@@ -6,3 +7,4 @@ class Student < ApplicationRecord
   validates :name, presence: true, uniqueness: {scope: :user_id}
   validates :phone_number, :email,  presence: true 
 end
+

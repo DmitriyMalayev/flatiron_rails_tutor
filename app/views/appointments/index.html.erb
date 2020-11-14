@@ -1,28 +1,31 @@
+<%# app/views/appointments/index.html.erb  %>
 <h1>List of Appointments</h1>
 <button><%= link_to  "Add Appointment", new_appointment_path %></button>
 <%= form_tag(appointments_path, method: "get") do %>
   <label for="filter_by_time">Filter By Time</label>
   <select name="filter_by_time">
-    <option <%= "selected" if params[:filter_by_time] == "" %> value="">All</option>
+    <option <%= "selected" if params[:filter_by_time] == "" %> value="">All</option>  <%# ??  %>
     <option <%= "selected" if params[:filter_by_time] == "past" %> value="past">Past</option>
     <option <%= "selected" if params[:filter_by_time] == "upcoming" %> value="upcoming">Upcoming</option>
   </select>
   <label for="sort">Sort</label>
   <select name="sort">
-    <option <%= "selected" if params[:filter_by_name] == "" %> value="">None</option>
-    <option <%= "selected" if params[:filter_by_name] == "most_recent" %> value="most_recent">Most Recent</option>
-    <option <%= "selected" if params[:filter_by_name] == "longest_ago" %> value="longest_ago">Longest Ago</option>
+    <option <%= "selected" if params[:sort] == "" %> value="">None</option>
+    <option <%= "selected" if params[:sort] == "most_recent" %> value="most_recent">Most Recent</option>
+    <option <%= "selected" if params[:sort] == "longest_ago" %> value="longest_ago">Longest Ago</option>
   </select>
   <%= submit_tag "Filter Results"%>
 <% end %>
 
 <% @appointments.each do |appointment| %>
   <p>
-    Hello <%= link_to appointment.student.name, student_path(appointment.student) %>. 
-    You have an appointment at <%= link_to appointment.starting_date_and_time.strftime("%b %e, %l:%M %p"), appointment_path(appointment) %>: 
-    with <%= link_to appointment.tutor.name, tutor_path(appointment.tutor) %>. 
-    The subject will be <% appointment_path(@appointment.subject)  %>
-    Your appointment will end at <%= link_to appointment.ending_date_and_time.strftime("%b %e, %l:%M %p"), appointment_path(appointment) %>. 
+    Hello <%= link_to appointment.student_name, student_path(appointment.student) %>. <br>
+    You have an appointment at <%= appointment.starting_date_and_time.strftime("%b %e, %l:%M %p")%>: <br> 
+    with <%= link_to appointment.tutor_name, tutor_path(appointment.tutor) %>.
+    The subject will be <strong> <%= appointment.subject  %>  <br> </strong> 
+    Your appointment will end at <%= appointment.ending_date_and_time.strftime("%b %e, %l:%M %p") %>. 
   </p>
 <% end %>
-
+<br>
+<iframe src="https://giphy.com/embed/gfTPmNCC7PKHevwp25" width="350" height="258" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/memecandy-gfTPmNCC7PKHevwp25"></a></p> 
+<%# Does select mean if there is anything selected in the filter?  %>  
