@@ -43,7 +43,6 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController #
   end
 end
 
-
 # This request.env[‘omniauth.auth’] is a hash of user information sent back from the provider.
 # OmniAuth simply sets a special hash called the Authentication Hash on the Rack environment of a request to /auth/:provider/callback.
 
