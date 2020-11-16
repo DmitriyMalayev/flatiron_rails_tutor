@@ -1,5 +1,4 @@
 <h2>Log in</h2>
- <%# app/views/devise/sessions/new.html.erb  %>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
     <%= f.label :email %><br />
@@ -19,7 +18,4 @@
     <%= f.submit "Log in" %>
   </div>
 <% end %>
-<%# Implement Google Image here or shared/_links.html.erb 
-If you use this file, overwrite line below. 
- %>
 <%= render "devise/shared/links" %>

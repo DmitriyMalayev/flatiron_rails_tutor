@@ -1,4 +1,3 @@
-# db/schema.rb
 ActiveRecord::Schema.define(version: 2020_11_11_224321) do
 
   create_table "appointments", force: :cascade do |t|

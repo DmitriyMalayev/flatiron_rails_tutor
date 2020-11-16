@@ -1,4 +1,3 @@
-# db/seeds.rb
 user = User.first_or_create(name: "name", email: "tutor@tutor.com", password:"password", phone_number: "(123)456-7890")
 
 student1 = user.students.find_or_create_by(name: "Hello", phone_number: "(111)111-1111", email: "email@gmail.com")  
@@ -6,9 +5,6 @@ student2 = user.students.find_or_create_by(name: "Hi", phone_number: "(222)222-2
 
 tutor1 = Tutor.find_or_create_by(name: "Dmitriy", phone_number: "(347)-761-4403", email: "dmitriy.malayev@gmail.com", years_of_experience: "10")
 tutor2 = Tutor.find_or_create_by(name: "Mr. Bean", phone_number: "(000)-010-1101", email: "mrbean@gmail.com", years_of_experience: "100")
-
-# @appointment1 = @tutor1.appointments.find_or_create_by(student: @student1, subject: "ROR", starting_date_and_time: "DateTime.now + 10.days", ending_date_and_time: "DateTime.now + 10.days + 1.hour")
-# @appointment2 = @tutor2.appointments.find_or_create_by(student: @student2, subject: "JS", starting_date_and_time: "DateTime.now + 1.days", ending_date_and_time: "DateTime.now + 1.days + 1.hour")
 
 10.times do 
     tutor = [tutor1, tutor2].sample  

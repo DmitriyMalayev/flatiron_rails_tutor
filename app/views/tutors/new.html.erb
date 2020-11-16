@@ -1,6 +1,5 @@
 <h1>New Tutor </h1>
- <%# app/views/tutors/new.html.erb  %>
-<%= show_errors_for(@tutor) %>  <%# Uses app/helpers/error.helper.rb  %>
+<%= show_errors_for(@tutor) %>
 <%= form_for(@tutor) do |f| %>
   <strong><%= f.label :name, "Name" %></strong>
   <%= f.text_field :name %> <br>
@@ -10,6 +9,6 @@
   <%= f.email_field :email %> <br>
   <strong> <%= f.label :years_of_experience, "Years Of Experience" %> </strong>
   <%= f.text_field :years_of_experience %> <br>
-   <br>
+  <br>
   <strong> <%= f.submit %> </strong>
-  <% end %>
+<% end %>

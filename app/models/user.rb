@@ -1,4 +1,4 @@
-class User < ApplicationRecord # app/models/user.rb
+class User < ApplicationRecord
   has_many :students
   has_many :tutors, through: :students
   has_many :appointments, through: :students

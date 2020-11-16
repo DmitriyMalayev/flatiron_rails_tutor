@@ -1,10 +1,9 @@
 <h1>List of Appointments</h1>
-<%# app/views/appointments/index.html.erb  %>
 <button><%= link_to  "Add Appointment", new_appointment_path %></button>
 <%= form_tag(appointments_path, method: "get") do %>
   <label for="filter_by_time">Filter By Time</label>
   <select name="filter_by_time">
-    <option <%= "selected" if params[:filter_by_time] == "" %> value="">All</option>  <%# ??  %>
+    <option <%= "selected" if params[:filter_by_time] == "" %> value="">All</option>
     <option <%= "selected" if params[:filter_by_time] == "past" %> value="past">Past</option>
     <option <%= "selected" if params[:filter_by_time] == "upcoming" %> value="upcoming">Upcoming</option>
   </select>
@@ -29,4 +28,3 @@
 <br>
 <iframe src="https://giphy.com/embed/gfTPmNCC7PKHevwp25" width="350" height="258" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
 <p><a href="https://giphy.com/gifs/memecandy-gfTPmNCC7PKHevwp25"></a></p>
-<%# Does select mean if there is anything selected in the filter?  %>

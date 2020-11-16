@@ -1,9 +1,7 @@
 <br>
 <strong>Name: </strong><%= @tutor.name  %> <br>
- <%# app/views/tutors/show.html.erb  %>
 <strong>Phone Number:</strong>   <%= @tutor.phone_number %> <br>
 <strong>Email Address:</strong> <%= mail_to @tutor.email %> <br>
 <strong><%= "Year".pluralize(@tutor.years_of_experience) %>  Of Experience:</strong> <%= @tutor.years_of_experience  %> <br>
 <strong>Make An Appointment With:</strong> <%= link_to @tutor.name, new_tutor_appointment_path(@tutor) %><br>
 <strong>List Of Appointments For:</strong> <%= link_to @tutor.name, tutor_appointments_path(@tutor) %>
-<%# "string".pluralize(count)  %>

@@ -1,4 +1,4 @@
-<%= show_errors_for(appointment) %>  <%# This is a partial  %>  <%# app/views/appointments/_form.html.erb  %>
+<%= show_errors_for(appointment) %>
 <%= form_for appointment do |f| %>
   <p>
     <% if appointment.student_id  %>
@@ -10,48 +10,27 @@
       <%= f.collection_select(:student_id, current_user.students, :id, :name) %>
     <% end %>
   </p>
-  <%# If the student_id is already assigned or exists show it, with this style when you want to edit the form you will not have the option to change the student or the tutor. This is an optional approach.   %>
   <p>
     <% if appointment.tutor_id %>
       <strong>  <%= f.label :tutor_id, "Tutor" %></strong>
       <%= f.hidden_field :tutor_id %>
       <%= appointment.tutor.name %>
-      <%# If the tutor_id is already assigned or exists show it, with this style when you want to edit the form you will not have the option to change the student or the tutor. This is an optional approach. Affects partial. %>
     <% else %>
       <strong>   <%= f.label :tutor_id, "Tutor" %></strong>
       <%= f.collection_select :tutor_id, Tutor.all, :id, :name %>
-      <%# Tutor.all because there isn't an association between Users and Tutors ??  %>
     <% end %>
   </p>
   <p>
-    <strong>  <%= f.label :subject %>  </strong> <%# no selection?? is it because we don't have a separate model? %>
+    <strong>  <%= f.label :subject %>  </strong>
     <%= f.text_field :subject %>
   </p>
   <p>
-    <strong> <%= f.label :starting_date_and_time, "Starting Date and Time" %></strong>   <%# Start time with GUI Calendar %>
+    <strong> <%= f.label :starting_date_and_time, "Starting Date and Time" %></strong>
     <%= f.datetime_field :starting_date_and_time %>
   </p>
   <p>
-    <strong> <%= f.label :ending_date_and_time, "Ending Date and Time" %> </strong> <%# End time with GUI Calendar %>
+    <strong> <%= f.label :ending_date_and_time, "Ending Date and Time" %> </strong>
     <%= f.datetime_field :ending_date_and_time %>
   </p>
   <%= f.submit %>
 <% end %>
-<%#  
-<!-- 
-f.collection_select :student_id, current_user.students, :id, :name 
-What is the method we want to call on the appointment object? 
-   student_id => This will assign the foreign key pointing to the student that this appointment belongs to. 
-  What's the collection we want to generate the options for the form? 
-  It's not Tutor.all because we're not able to create an appointment for any student or only students that we have added ourselves. 
-  This is why we use current_user.students. 
-  What is the method we want to call to populate each value? 
-  :id => We want the :id of each student that the selected student to be the argument we pass to student_id=  
-  
-  What is the option value? 
-  The option value is going to be the return value from :id when it's called on that student.  
-  The option value is what is going to end up in the input and in the params.  
-  The last argument is what the User will see. 
-  It is the text inside of the option. The name of the student which is the only choice that makes sense to show to the user.
---> 
-%>

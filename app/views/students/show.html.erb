@@ -1,11 +1,7 @@
-
-<h1><%= @student.name  %></h1> <%# app/views/students/show.html.erb  %>
+<h1><%= @student.name  %></h1>
 <p> <strong>Make An Appointment For:</strong> <%= link_to @student.name, new_student_appointment_path(@student)%></p>
 <p> <strong>List Of Appointments For:</strong><%= link_to @student.name, student_appointments_path(@student) %></p>
 <p><%= link_to "Edit Student", edit_student_path(@student) %></p>
 <%= form_tag(student_path(@student), method: :delete) do %>
- <strong> <%= submit_tag "Delete Student", style: "color: red;" %> </strong> <br>
+  <strong> <%= submit_tag "Delete Student", style: "color: red;" %> </strong> <br>
 <% end %>
-
-
- 
